@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Authentication from './Authentication';
 
 
 class App extends Component {  
@@ -13,7 +14,7 @@ class App extends Component {
   nytArchives = `https://api.nytimes.com/svc/archive/v1/${this.state.year}/${this.state.month}.json?api-key=${process.env.REACT_APP_NYT_KEY}`
 
   componentDidMount() {
-    this.showArchives()
+    // this.showArchives()
   }
 
   showArchives = () => {
@@ -27,6 +28,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>MicroFilmography</h1>
+          <Authentication/>
         </header>
   
       </div>
