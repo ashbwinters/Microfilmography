@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
 
-const newspapersByState = `https://chroniclingamerica.loc.gov/newspapers.json`
 
-
-class App extends Component {
+class App extends Component {  
   state = {
+    month: 1,
+    year: 1851,
     archive: [],
     library:[]
   }
+  
+  nytArchives = `https://api.nytimes.com/svc/archive/v1/${this.state.year}/${this.state.month}.json?api-key=${process.env.REACT_APP_NYT_KEY}`
 
   componentDidMount() {
     this.showArchives()
   }
 
   showArchives = () => {
-    fetch(newspapersByState)
+    fetch(this.nytArchives)
       .then(response => response.json())
       .then(console.log)
   }

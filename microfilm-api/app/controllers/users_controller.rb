@@ -18,8 +18,8 @@ class UsersController < ApplicationController
         if @user.save
             token = create_token(@user)
             render json: {
-                message: `Success! Your account has been created!`
-                # token: token
+                # message: "Success! Your account has been created!"
+                token: token
             }
         else
             render json: { message: @user.errors.messages }

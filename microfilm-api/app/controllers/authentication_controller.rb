@@ -9,7 +9,6 @@ class AuthenticationController < ApplicationController
 
                 render json: {
                     token: token,
-                    user_id: @user.id
                 }
             else
                 render json: {message: "Password is incorrect. Please try again."}, status: :unauthorized
