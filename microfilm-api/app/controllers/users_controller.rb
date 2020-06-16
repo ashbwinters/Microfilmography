@@ -18,8 +18,8 @@ class UsersController < ApplicationController
         if @user.save
             token = create_token(@user)
             render json: {
-                message: `Success! #{@user.username} has been created!`,
-                token: token
+                message: `Success! Your account has been created!`
+                # token: token
             }
         else
             render json: { message: @user.errors.messages }
@@ -29,6 +29,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username, :password)
+        params.require(:user).permit(:username, :password, :email)
     end
 end
