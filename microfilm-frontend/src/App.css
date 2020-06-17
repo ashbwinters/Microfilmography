@@ -1,3 +1,37 @@
+body {
+  background-image: url(https://images.unsplash.com/reserve/uZYSV4nuQeyq64azfVIn_15130980706_64134efc6e_o.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2247&q=80);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .App {
   text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 30px;
+}
+
+header {
+  margin: 5%;
+  background-color: saddlebrown;
+  color: antiquewhite;
+}
+
+.login {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 5%;
+}
+
+.signup {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 5%;
+}
+
+input {
+  font-family: inherit;
+  font-size: 20px;
 }

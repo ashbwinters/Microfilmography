@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import Authentication from './Authentication';
+import Archive from './Archive';
 
 
 class App extends Component {  
   state = {
     month: 1,
-    year: 1851,
+    year: 1852,
     archive: [],
     library:[]
   }
@@ -14,13 +15,15 @@ class App extends Component {
   nytArchives = `https://api.nytimes.com/svc/archive/v1/${this.state.year}/${this.state.month}.json?api-key=${process.env.REACT_APP_NYT_KEY}`
 
   componentDidMount() {
-    // this.showArchives()
+    this.showArchives()
   }
 
   showArchives = () => {
     fetch(this.nytArchives)
       .then(response => response.json())
-      .then(console.log)
+      .then(results => this.setState({
+        archive: results.response.docs
+      }))
   }
 
   render() {
@@ -28,9 +31,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>MicroFilmography</h1>
-          <Authentication/>
         </header>
-  
+        <Authentication/>
+        <Archive archives={this.state.archive}/>
       </div>
     )
   }
