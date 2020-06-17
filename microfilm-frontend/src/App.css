@@ -1,19 +1,19 @@
 body {
-  background-image: url(https://images.unsplash.com/reserve/uZYSV4nuQeyq64azfVIn_15130980706_64134efc6e_o.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2247&q=80);
+  background-image: url(https://images.unsplash.com/photo-1547105518-ef5c73a71c6b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .App {
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
   font-size: 30px;
+  color: antiquewhite;
+  background-color: saddlebrown;
 }
 
 header {
   margin: 5%;
-  background-color: saddlebrown;
   color: antiquewhite;
 }
 
@@ -34,4 +34,10 @@ header {
 input {
   font-family: inherit;
   font-size: 20px;
+}
+
+li {
+  font-size: 17spx;
+  list-style-type: none;
+  color: antiquewhite;
 }

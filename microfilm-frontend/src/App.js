@@ -6,10 +6,10 @@ import Archive from './Archive';
 
 class App extends Component {  
   state = {
-    month: 1,
-    year: 1852,
-    archive: [],
-    library:[]
+    month: 6,
+    year: 1865,
+    archives: []
+    // library:[]
   }
   
   nytArchives = `https://api.nytimes.com/svc/archive/v1/${this.state.year}/${this.state.month}.json?api-key=${process.env.REACT_APP_NYT_KEY}`
@@ -22,7 +22,7 @@ class App extends Component {
     fetch(this.nytArchives)
       .then(response => response.json())
       .then(results => this.setState({
-        archive: results.response.docs
+        archives: results.response.docs
       }))
   }
 
@@ -32,8 +32,12 @@ class App extends Component {
         <header className="App-header">
           <h1>MicroFilmography</h1>
         </header>
-        <Authentication/>
-        <Archive archives={this.state.archive}/>
+        <div>
+          <Authentication/>
+        </div>
+        <div>
+         <Archive archives={this.state.archives} key={`${this.state.month}-${this.state.year}`}/>
+        </div>
       </div>
     )
   }
