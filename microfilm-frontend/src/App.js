@@ -45,8 +45,8 @@ class App extends Component {
     return (
       <div className="App">
           <h1>MicroFilmography</h1>
-          < NewspaperContainer newspapers={this.state.newspapers} usState={this.state.usState} getNewspaper={this.getSelectedNewspaper}/>
           < NewspaperDetail details={this.state.newspaperDetails} issues={this.state.archives} />
+          < NewspaperContainer newspapers={this.state.newspapers} usState={this.state.usState} getNewspaper={this.getSelectedNewspaper}/>
       </div>
     )
   }

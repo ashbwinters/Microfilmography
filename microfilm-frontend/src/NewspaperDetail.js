@@ -1,4 +1,5 @@
 import React from 'react'
+import IssueContainer from './IssueContainer'
 
 export default function NewspaperDetail ( {details, issues } ) {
 
@@ -9,6 +10,7 @@ export default function NewspaperDetail ( {details, issues } ) {
             <h3>Location: {details.location}</h3>
             <h4>Published: {details.startYear} - {details.endYear}</h4>
             <button>Go To Archives</button>
+            < IssueContainer issues={issues} />
         </div>
     )
 }
