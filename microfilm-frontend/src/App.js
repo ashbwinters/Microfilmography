@@ -10,9 +10,10 @@ const newspapersURL = `https://chroniclingamerica.loc.gov/newspapers.json`
 class App extends Component {
   state = {
     newspapers: [],
-    usState: 'Colorado',
+    usState: 'Texas',
     archives: [],
-    newspaperDetails: {}
+    newspaperDetails: {},
+    isNewspaperSelected: false
   }
 
   componentDidMount() {
@@ -39,14 +40,26 @@ class App extends Component {
           }
         })
       })
+      .then(this.changeSelectedStatus())
   }
+
+  changeSelectedStatus = () => this.setState({ isNewspaperSelected: !this.state.isNewspaperSelected})
 
   render() {
     return (
       <div className="App">
           <h1>MicroFilmography</h1>
-          < NewspaperDetail details={this.state.newspaperDetails} issues={this.state.archives} />
-          < NewspaperContainer newspapers={this.state.newspapers} usState={this.state.usState} getNewspaper={this.getSelectedNewspaper}/>
+          {this.state.isNewspaperSelected
+           
+          ? < NewspaperDetail
+            details={this.state.newspaperDetails}
+            issues={this.state.archives}
+          />
+          : < NewspaperContainer
+            newspapers={this.state.newspapers}
+            usState={this.state.usState}
+            getNewspaper={this.getSelectedNewspaper}
+          />}
       </div>
     )
   }

@@ -2,19 +2,12 @@ import React from 'react'
 
 export default function IssuePages ( {image} ) {
 
-    // const proxy = `https://cors-anywhere.herokuapp.com/`
+// const displayImage = () => <embed src={image.pdf} width="1000px" height="3100px" />
 
-    // const fetchImage = () => {
-    //     fetch(`${proxy}${image.pdf}`)
-    //         .then(response => response.json())
-    //         .then(result => displayImage(result.pdf))
-    // }
-
-const displayImage = () => <embed src={image.pdf} width="800px" height="2100px" />
+const displayImage = () => <iframe src={`https://docs.google.com/gview?url=${image.pdf}&embedded=true`} title={image.sequence} width='750' height='750'></iframe>
 
     return (
-        <div>
-            {/* {fetchImage()} */}
+        <div className='page'>
             {displayImage()}
         </div>
     )

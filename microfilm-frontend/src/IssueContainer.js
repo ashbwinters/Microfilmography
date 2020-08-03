@@ -9,7 +9,8 @@ export default class IssueContainer extends Component {
     state = {
         issue: [],
         pages: [],
-        images: []
+        images: [],
+        isIssueSelected: false
     }
 
     showIssues = () => this.props.issues.map(issue => < IssueCard issue={issue} key={issue.date_issued} getIssue={this.getIssue}/>)
@@ -23,6 +24,7 @@ export default class IssueContainer extends Component {
 
     getPages = () => {
         this.state.pages.map(page => this.fetchEachPage(page.url))
+        this.changeSelectedStatus()
     }
     
     fetchEachPage = (pageURL) => {
@@ -33,19 +35,25 @@ export default class IssueContainer extends Component {
 
     displayImagesOfPages = () => this.state.images.map(image => <IssuePages image={image} key={image.sequence} />)
 
+    changeSelectedStatus = () => this.setState({ isIssueSelected: !this.state.isIssueSelected})
+
+
     render() {
         
         return (
 
             <div>
-                <div className='issue-details'>
-                    {this.displayImagesOfPages()}
-                </div>
-                <div className='issue-list'>
-                    <p>View Issue By Date</p>
-                    {this.showIssues()}
-                </div>
+                {this.state.isIssueSelected
+                    ? <div className='issue-details'>
+                        {this.displayImagesOfPages()}
+                    </div>
+                    : <div className='issue-list'>
+                        <p>View Issue By Date</p>
+                        {this.showIssues()}
+                    </div>
+                }
             </div>
+                
         )
 
     }

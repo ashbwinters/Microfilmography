@@ -1,7 +1,31 @@
+body {
+  background-image: url("https://images.unsplash.com/photo-1581451370346-9c560d7f6252?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1321&q=80");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 .App {
+  align-content: center;
   text-align: center;
+  font-size: 150%;
 }
 
 li {
   list-style: none;
+}
+
+button {
+  background-color: burlywood;
+}
+
+.page {
+  display: flex;
+  align-content: center;
+}
+iframe {
+  -webkit-transform: scale(2);
+  transform: scale(2);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
 }
